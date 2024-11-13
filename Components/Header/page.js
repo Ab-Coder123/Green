@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useEffect, useState } from "react";
 import alex from "../../public/images/20783.jpg";
 import cairo from "../../public/images/459.jpg";
@@ -21,6 +21,9 @@ const Header = () => {
     countryCode: "",
     error: null,
   });
+
+  const [currency, setCurrency] = useState(""); // إضافة حالة العملة
+
   // Country options
   const countryOptions = [
     { value: "US", label: "United States", currency: "USD" },
@@ -45,7 +48,7 @@ const Header = () => {
     }
   };
 
-  // Auhrefmatically find location on component mount
+  // Automatically find location on component mount
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -66,6 +69,9 @@ const Header = () => {
               const countryData = countryOptions.find(
                 (option) => option.value === data.country
               );
+              if (countryData) {
+                setCurrency(countryData.currency); // إضافة هذه السطر لتحديث العملة بناءً على الموقع
+              }
             } else {
               setLocation((prev) => ({
                 ...prev,
@@ -111,7 +117,6 @@ const Header = () => {
   return (
     <header className="relative h-screen">
       {/* Static Text Over the Slider */}
-
       <div className="absolute inset-10 flex flex-col py-52 space-y-4 px-4 md:px-8">
         <h3 className="z-10 text-2xl font-semibold text-white md:text-4xl lg:text-6xl">
           Welcome
