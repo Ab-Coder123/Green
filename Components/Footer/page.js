@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import { FaGithub, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
-import img1 from "../../public/images/Logo (1).png";
+import img1 from "../../public/images/logo (1).png";
 import Image from "next/image";
 import AOS from "aos"; // استيراد AOS
 import "aos/dist/aos.css"; // استيراد الـ CSS الخاص بـ AOS
