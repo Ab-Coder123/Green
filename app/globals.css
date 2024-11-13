@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+.slider {
+  filter: brightness(0.5) opacity(1);
+}
+
+
+/* إضافة CSS الخاص بمكتبة Leaflet */
+.leaflet-container {
+  height: 400px;
+  width: 100%;
+}
